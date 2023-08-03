@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="reset.css">    
+    <link rel="stylesheet" href="main.css">
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <!-- <link rel="stylesheet" href="./css/main.css"> -->
+
+    <style>
+       .todo_ul .todo_li {margin:2vw auto;}
+       .todo_ul .todo_li h4{margin:.5vw auto;}
+    </style>
+</head>
+
+<body>   
+    <div class="inner">    
+        <header>
+            <nav>
+                <ul class="gnb">
+                    <li><a href="/">home</a></li>
+                    <!-- <li><a href="/todo">todo</a></li> -->
+                    <!-- <li><a href="/list">list</a></li> -->
+                    <li><a href="/done">done</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="todo_wrap" class="todo_wrap">
+            <h1 class="title">
+                🌈<span> T🌞</span> <span>d💗</span> <span>list</span>
+            </h1>
+            <h4> 할일 : <%= data.todo %></h4>
+            <h4> 메모 :<%= data.memo %></h4> 
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $('.delete').click(function(e){
+            let idNum = e.target.dataset.id
+            let clickDelBtn = $(this);
+
+            $.ajax({
+            method : 'DELETE', //삭제
+            url: '/delete', //요청할 경로
+            data: {_id : idNum } //내가 지금 클릭한 버튼의 id
+            }).done(function(결과){
+                //성공시 실행
+                console.log('성공했어염^*^')
+                clickDelBtn.parent('li').fadeOut();
+            }).fail(function(xhr, textStatus, errorThrown){
+                //요청 실패시 실행할 코드
+                console.log(xhr, textStatus, errorThrown) //왜 실패했는지 응답코드와 메시지 알려줌
+                alert('삭제 실패!!!')
+            });
+        })
+       
+    </script>
+    <!-- <script src="./js/main.js"></script> -->
+</body>
+
+</html>

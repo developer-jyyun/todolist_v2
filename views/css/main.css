@@ -1,0 +1,171 @@
+@font-face {
+    /* Rix이누아리두리네 */
+    font-family: 'RixInooAriDuriR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/RixInooAriDuriR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{background: #fcffe4;}
+.inner {
+    width:375px;margin:0 auto;
+}
+
+header nav .gnb{display: flex;width: 100%;justify-content: space-between;}
+.title {
+    font-size: 2.8rem;
+    font-family: 'RixInooAriDuriR';
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10vh 0 4vh;
+    color: #f59e9e;
+    -webkit-text-stroke: 2px #000;
+    text-shadow: 2px 2px #a8f9c1;
+}
+.title span {
+    letter-spacing: -5px;
+    font-family: 'RixInooAriDuriR';
+    color: #ffb900;
+}
+
+.title span:nth-child(2) {
+    letter-spacing: -5px;
+    font-family: 'RixInooAriDuriR';
+    color: #f59e9e;
+}
+
+.title span:last-child {
+    letter-spacing: 1px;
+    color: #ffb900;
+}
+
+h2,h3,h4,li,.clock,button{font-family: 'DungGeunMo';}
+
+h4 {
+    text-align: center;
+    margin: 3vh auto;
+}
+
+
+.clock{width: 200px;text-align: center;font-size: 1rem;margin:2vw auto;line-height: 2rem; }
+.date::before{content:'📅'; margin-right: .5rem;}
+.time::before{content:'⏰';margin-right: .5rem;}
+h3{
+    margin: 4vh auto 2vh;
+    text-align: left;
+}
+
+h3::before{content:'# ';}
+form {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.form_group{height: 13vh;}
+.form_group:first-child{width:80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.form_group:nth-child(2){width:20%}
+/* .form_group #add_con{width:90%;} */
+/* .form_group #add_memo{width:90%;} */
+
+form #add_con, #add_memo ,form #add_btn {
+    box-shadow: 3px 3px #a0a0a0;;
+    padding: 1rem;
+    line-height: 1vh;
+    border-radius: 5px;
+    border: 2px solid #383838;
+    box-sizing: border-box;
+    width: 98%;   
+}
+form #add_con, #add_memo {
+    background: #fff4f4;
+}
+
+form #add_con:focus,
+form #add_memo:focus {
+    outline: none;
+}
+
+form #add_btn {
+    font-size: 4vw;
+    color: #fff;
+    background: #f59e9e;   
+    height: 100%;
+    margin-bottom: 0.5vw;
+}
+
+
+
+.list_wrap {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.todo_ul, .end_ul{margin-left:4vw;}
+.todo_ul .list_num{display: none;}
+.todo_ul .text{text-align: left;}
+.todo_ul .memo{color:#4e4e4e;}
+.todo_li{
+    margin: 0 0 2vw -4vw;
+    background: #efffff;
+    line-height: 2rem;
+    border-radius: 5px;
+    border:2px solid #333;
+    box-shadow: 3px 3px #a0a0a0;
+}
+.todo_li .delete_top{
+    display: flex;
+    justify-content: space-between;
+    color:#fff;
+    text-align: right;
+    width: 100%;
+    padding:.2vw .2vw .2vw 1vw;
+    /* background:#6567ff; */
+    background:#4e50ff;
+    border-bottom:2px solid #333;color: #333;
+    box-sizing: border-box;
+}
+.todo_li .delete_top span{color:#e2e2e2;}
+.todo_li .delete_btn{
+    background: #ccc;border:2px solid #333;color: #333;}
+.todo_li .li_con { 
+    padding: 0 1vw 0 1vw;
+}
+.todo_li::marker {
+    content: '🌱 ';
+    font-size: 1.5rem;
+}
+
+.todo_li.off::marker {
+    content: '🌼 ';
+} 
+.todo_li.off {
+    background: #fbfbfb;
+    box-shadow: 3px 3px #dbfdc9;
+
+}
+
+label {
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+}
+
+label input[type=checkbox]{margin-right:1vw;}
+
+label.off, label.off .memo {
+    text-decoration: line-through;
+    color: #c5c5c5;
+}
